@@ -4,47 +4,30 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Employee {
+public class Address {
 	
 	@Id
-    private String employeeId;
-	private String name;
-	private String email;
+	private String id;
 	private String street;
 	private String apt;
 	private String city;
 	private String state;
 	private String zip;
 	private String country;
-	private String phone;
 	
-	
-	//public Employee(){}
-
-	public Employee(){
-		//this.address = address;
-		this.employeeId=employeeId;
-		this.name=name;
-		this.email=email;
-		this.street=street;
+	public Address(){
+		this.id= String.valueOf(Math.random());
+		this.street=street;		
 		this.apt=apt;
 		this.city=city;
 		this.state=state;
 		this.zip=zip;
 		this.country=country;
-		this.phone=phone;
+		
 	}
 
-	public String getEmployeeId() {
-		return employeeId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public String getEmail() {
-		return email;
+	public String getId() {
+		return id;
 	}
 
 	public String getStreet() {
@@ -69,10 +52,6 @@ public class Employee {
 
 	public String getCountry() {
 		return country;
-	}
-
-	public String getPhone() {
-		return phone;
 	}
 
 }
