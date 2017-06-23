@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +30,7 @@ public class EmployeeController {
 			
 		}
 	
-	@GetMapping("/employees/{employeeId}")
+	@GetMapping("/employee/{employeeId}")
 	public Employee findemployee(@PathVariable("employeeId") String id){
 		
 		return  employeeRepository.findOne(id);
@@ -42,6 +43,22 @@ public class EmployeeController {
 		employeeRepository.save(employee);
 		return null;
 		
-	}	
+	}
+	
+@PutMapping(value="/addemployee/{employeeId}", consumes=MediaType.APPLICATION_JSON_VALUE)
+	
+	public String addEmployee(@RequestBody Employee employee){
+		employeeRepository.save(employee);
+		return null;
+		
+	}
+
+@DeleteMapping(value="/deleteemployee/{employeeId}")
+
+public String deleteEmployee(@PathVariable("employeeId") String id){
+	employeeRepository.delete(id);
+	return null;
+	
+}
 
 }
